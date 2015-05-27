@@ -148,7 +148,6 @@ Route::set('default', '(/<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'welcome',
 		'action'     => 'index',
-        'page'       => 'index',
 	));
 
 //(/<controller>(/<action>(/<id>)))
@@ -157,4 +156,10 @@ Route::set('fizzbuzz', 'fizzbuzz(/<controller>(/<action>(/<id>)))')
     ->defaults(array(
         'controller' => 'welcome',
         'action'     => 'fizzbuzz',
+    ));
+
+Route::set('contest', 'contest(/<controller>(/<action>(/<id>)))')
+    ->defaults(array(
+        'controller' => 'contest',
+        'action'     => 'index',
     ));

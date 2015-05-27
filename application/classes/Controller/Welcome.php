@@ -2,26 +2,32 @@
 
 class Controller_Welcome extends Controller {
 
+    public $mainview = 'mainview';
+
     public function action_index()
     {
-        print('<a href="contest">Contest</a><br><br>');
-        print('<h1> This is FIZZBUZZ</h1><br><br>');
 
         $count = 100;
+        $fizzbuzzArr = array();
 
         for($i = 0; $i <= $count; $i++) {
 
             if ($i % 3 == 0 && $i % 5 == 0) {
-                echo $i.':fizzbuzz'."<br>";
+                $fizzbuzzArr[] = $i.':fizzbuzz'."<br>";
             }elseif ($i % 3 == 0) {
-                echo $i.':fizz'."<br>";
+                $fizzbuzzArr[] = $i.':fizz'."<br>";
             }elseif ($i % 5 == 0) {
-                echo $i.':buzz'."<br>";
+                $fizzbuzzArr[] = $i.':buzz'."<br>";
             }else{
-                echo $i.":".$i."<br>";
+                $fizzbuzzArr[] = $i.":".$i."<br>";
             }
 
         }
+
+        $view = View::factory($this->mainview)
+            ->set('fizzbuzz', $fizzbuzzArr);
+        $this->response->body($view);
+
     }
 
 } // End Welcome
