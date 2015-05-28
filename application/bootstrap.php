@@ -68,7 +68,14 @@ mb_substitute_character('none');
 /**
  * Set the default language
  */
-I18n::lang('en-us');
+
+I18n::lang('en');
+Lang::$i18n_routes = TRUE;
+Lang::$default = 'en';
+
+//$lang = I18n::lang();
+
+
 
 if (isset($_SERVER['SERVER_PROTOCOL']))
 {
@@ -129,7 +136,7 @@ Kohana::modules(array(
 	// 'minion'     => MODPATH.'minion',     // CLI Tasks
 	 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
-	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	));
 
 /**
@@ -145,27 +152,25 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-Route::set('default', 'home')
+Route::set('default', 'en/home')
 	->defaults(array(
 		'controller' => 'welcome',
 		'action'     => 'index',
 	));
 
-//(/<controller>(/<action>(/<id>)))
-
-Route::set('fizzbuzz', 'fizzbuzz')
+Route::set('fizzbuzz', 'en/fizzbuzz')
     ->defaults(array(
         'controller' => 'welcome',
         'action'     => 'fizzbuzz',
     ));
 
-Route::set('contest', 'contest')
+Route::set('contest', 'en/contest')
     ->defaults(array(
         'controller' => 'contest',
         'action'     => 'index',
     ));
 
-Route::set('contest_entry', 'contest/entry(/<id>)')
+Route::set('contest_entry', 'en/contest/entry(/<id>)')
     ->defaults(array(
         'controller' => 'contest',
         'action'     => 'contest_entry',

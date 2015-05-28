@@ -10,8 +10,8 @@
     </head>
 
     <body>
-        <a href="/kohana/home">Index</a> |
-        <a href="/kohana/contest">Contest</a><br><br>
+        <a href="/kohana/en/home">Index</a> |
+        <a href="/kohana/en/contest">Contest</a><br><br>
 
         <h1>Contest Entry</h1><br><br>
 
