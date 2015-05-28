@@ -4,7 +4,7 @@ return array
 (
 	'default' => array
 	(
-		'type'       => 'MySQL',
+		'type'       => 'PDO',
 		'connection' => array(
 			/**
 			 * The following options are available for MySQL:
@@ -18,7 +18,7 @@ return array
 			 *
 			 * Ports and sockets may be appended to the hostname.
 			 */
-			'hostname'   => 'localhost',
+			'hostname'   => 'localhost:3306',
 			'database'   => 'kohana',
 			'username'   => 'root',
 			'password'   => FALSE,
@@ -41,8 +41,9 @@ return array
 			 */
 			'dsn'        => 'mysql:host=localhost;dbname=kohana',
 			'username'   => 'root',
-			'password'   => 'r00tdb',
+			'password'   => FALSE,
 			'persistent' => FALSE,
+            'options' => array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
 		),
 		/**
 		 * The following extra options are available for PDO:

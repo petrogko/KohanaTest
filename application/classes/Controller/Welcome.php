@@ -2,7 +2,7 @@
 
 class Controller_Welcome extends Controller {
 
-    public $mainview = 'mainview';
+    public $main_view = 'main_view';
 
     public function action_index()
     {
@@ -24,7 +24,7 @@ class Controller_Welcome extends Controller {
 
         }
 
-        $view = View::factory($this->mainview)
+        $view = View::factory($this->main_view)
             ->set('fizzbuzz', $fizzbuzzArr);
         $this->response->body($view);
 

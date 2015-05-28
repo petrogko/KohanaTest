@@ -104,6 +104,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   => '/kohana/',
+    'index_file' => False,
 ));
 
 /**
@@ -144,7 +145,7 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-Route::set('default', '(/<controller>(/<action>(/<id>)))')
+Route::set('default', 'home')
 	->defaults(array(
 		'controller' => 'welcome',
 		'action'     => 'index',
@@ -152,14 +153,20 @@ Route::set('default', '(/<controller>(/<action>(/<id>)))')
 
 //(/<controller>(/<action>(/<id>)))
 
-Route::set('fizzbuzz', 'fizzbuzz(/<controller>(/<action>(/<id>)))')
+Route::set('fizzbuzz', 'fizzbuzz')
     ->defaults(array(
         'controller' => 'welcome',
         'action'     => 'fizzbuzz',
     ));
 
-Route::set('contest', 'contest(/<controller>(/<action>(/<id>)))')
+Route::set('contest', 'contest')
     ->defaults(array(
         'controller' => 'contest',
         'action'     => 'index',
+    ));
+
+Route::set('contest_entry', 'contest/entry(/<id>)')
+    ->defaults(array(
+        'controller' => 'contest',
+        'action'     => 'contest_entry',
     ));

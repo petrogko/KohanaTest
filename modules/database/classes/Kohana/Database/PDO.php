@@ -31,8 +31,8 @@ class Kohana_Database_PDO extends Database {
 
 		// Extract the connection parameters, adding required variabels
 		extract($this->_config['connection'] + array(
-			'dsn'        => '',
-			'username'   => NULL,
+			'dsn'        => 'mysql:host=localhost;dbname=kohana',
+			'username'   => 'root',
 			'password'   => NULL,
 			'persistent' => FALSE,
 		));
