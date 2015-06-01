@@ -146,7 +146,8 @@ Kohana::modules(array(
  * If you have not defined a cookie salt in your Cookie class then
  * uncomment the line below and define a preferrably long salt.
  */
-// Cookie::$salt = NULL;
+//Cookie::$secure = FALSE;
+Cookie::$salt = 'key';
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
@@ -170,8 +171,21 @@ Route::set('contest', 'en/contest')
         'action'     => 'index',
     ));
 
-Route::set('contest_entry', 'en/contest/entry(/<id>)')
+Route::set('contest_entry', 'en/contest/entry')
     ->defaults(array(
         'controller' => 'contest',
         'action'     => 'contest_entry',
+    ));
+
+Route::set('contest_entry_edit', 'en/contest/entry/<id>')
+    ->defaults(array(
+        'controller' => 'contest',
+        'action'     => 'contest_entry_edit',
+    ));
+
+
+Route::set('contest_entry_update', '<en>/contest/entry/<id>/update')
+    ->defaults(array(
+        'controller' => 'contest',
+        'action'     => 'contest_entry_update',
     ));
